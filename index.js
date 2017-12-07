@@ -42,14 +42,14 @@ router.route('/assignments')
         });
     })
     .post(function (req, res) {
-        // create a new instance of the Bear model
+        // create a new instance of the Assignment model
         var assign = new Assignment();
-        // set the bears name (comes from the request)
+        // set the assignments name (comes from the request)
         assign.Assignment_ID = req.body.Assignment_ID;
         assign.Student_ID = req.body.Student_ID;
         assign.Assignment_Content = req.body.Assignment_Content;
         assign.Assignment_Type = req.body.Assignment_Type;
-        // save the bear and check for errors
+        // save the assignment and check for errors
         assign.save(function (err) {
             if (err) { res.send(err); }
             res.json(assign);
@@ -71,7 +71,7 @@ router.route('/assignments/:assignment_id')
 
     // update the assignment with this id
     .put(function (req, res) {
-        // use our bear model to find the bear we want
+        // use our assignment model to find the assignment we want
         var query = {};
         query.Assignment_ID = req.params.assignment_id;
         Assignment.find(query, function (err, assign) {
@@ -83,6 +83,7 @@ router.route('/assignments/:assignment_id')
             assign[0].save(function (err) {
                 if (err) { res.send(err); }
                 res.json({ message: 'Successfully modified'});
+            // Assign.update(query, update, option,function(){}) option {multi:true or false}
             });
 
         });
