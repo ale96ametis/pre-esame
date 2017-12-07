@@ -40,7 +40,7 @@ paths:
       description: Creates a new assignment.  Duplicates are allowed
       operationId: addAssignment
       parameters:
-        - name: assignment
+        - name: new assignment
           in: body
           description: Assignment to add to the db
           required: true
@@ -131,9 +131,9 @@ definitions:
       - Assignment_ID
       - Student_ID
     properties:
-      name:
+      Assignment_ID:
         type: string
-      tag:
+      Student_ID:
         type: string
   Error:
     required:
