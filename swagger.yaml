@@ -14,7 +14,7 @@ info:
 host: salty-oasis-45641.herokuapp.com
 basePath: /api
 schemes:
-  - http
+  - https
 consumes:
   - application/json
 produces:
