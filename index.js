@@ -45,6 +45,7 @@ router.route('/assignments')
         // create a new instance of the Assignment model
         var assign = new Assignment();
         // set the assignments name (comes from the request)
+        console.log(req.body);
         assign.Assignment_ID = req.body.Assignment_ID;
         assign.Student_ID = req.body.Student_ID;
         assign.Assignment_Content = req.body.Assignment_Content;

@@ -1,18 +1,25 @@
 //const data = {"test": "tested"};
-var data_new = { "Student_ID": "123", "Assignment_ID":"12345", "Assignment_Content": "test"};
+var data_new = {
+  "Student_ID": "123",
+  "Assignment_ID":"12345",
+  "Assignment_Content": "test"
+};
+
+dataJSON = JSON.stringify(data_new);
 const fetch = require('node-fetch');
 const root = 'https://salty-oasis-45641.herokuapp.com/';
+//const root = 'localhost:8080/'
 const assignmentsRoot= root  +'api/assignments';
 var assignmentID
 const postAssignments = function (data_new){
   return fetch(assignmentsRoot, {
     method: 'POST',
     headers:{
-      'Content-Type': 'application/x-www-form-urlencoded',
+      'Content-Type': 'application/json',
       'Accept': 'application/json'
     },
-    //body: JSON.stringify(data_new)
-    body: 'Student_ID=123&Assignment_ID=12345&Assignment_Content=test'
+    body: dataJSON
+    //body: 'Student_ID=123&Assignment_ID=12345&Assignment_Content=test'
   })
   .then((response) => {
     if(response.ok) {
